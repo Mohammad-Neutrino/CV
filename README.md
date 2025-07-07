@@ -1,6 +1,6 @@
 # CV | Mohammad Ful Hossain Seikh
 
-[![PDF Latest Build](https://github.com/Mohammad-Neutrino/CV/actions/workflows/latex.yml/badge.svg)](https://github.com/Mohammad-Neutrino/CV/actions) 
+[![PDF Build](https://github.com/Mohammad-Neutrino/CV/actions/workflows/latex.yml/badge.svg)](https://github.com/Mohammad-Neutrino/CV/actions)
 [![Overleaf Sync](https://img.shields.io/badge/Edit_on-Overleaf-47A141?logo=overleaf)](https://www.overleaf.com/project/686b4f6c89d672924116d5c4)
 
 **LaTeX-based CV** for Mohammad Ful Hossain Seikh, Ph.D. Candidate in Astroparticle Physics at the University of Kansas.  

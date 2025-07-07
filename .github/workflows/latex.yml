@@ -13,3 +13,9 @@ jobs:
         with:
           root_file: CV_Type2.tex  # Replace with your main .tex filename
           args: "-shell-escape -interaction=nonstopmode -file-line-error"
+
+      - name: Upload PDF
+        uses: actions/upload-artifact@v3
+        with:
+          name: cv-pdf
+          path: ./CV_Type2.pdf  # Match your output filename    
