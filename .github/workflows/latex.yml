@@ -8,14 +8,35 @@ jobs:
       image: ghcr.io/xu-cheng/texlive-full:latest
     steps:
       - uses: actions/checkout@v4
-        
-      - name: Compile LaTeX
+
+      # Install exact font packages (common failure point)
+      - name: Install System Dependencies
+        run: |
+          apt-get update
+          apt-get install -y \
+            fonts-freefont-otf \
+            fonts-lmodern \
+            fonts-lato \
+            fonts-liberation
+
+      # Two-phase compilation with error logging
+      - name: Compile LaTeX (Phase 1)
+        run: |
+          latexmk -pdf -interaction=nonstopmode -file-line-error \
+            -pdflatex="pdflatex -synctex=1 -interaction=nonstopmode -file-line-error" \
+            CV_Type2.tex || true
+          cat CV_Type2.log | grep -i "error\|warning\|missing"
+
+      - name: Compile LaTeX (Phase 2 - Final)
         run: |
           latexmk -pdf -interaction=nonstopmode -file-line-error CV_Type2.tex
-          ls -la  # Verify PDF exists
-          
-      - name: Upload PDF
+          [ -f CV_Type2.pdf ] || exit 1
+
+      # Upload both PDF and logs for debugging
+      - name: Archive Results
         uses: actions/upload-artifact@v3
         with:
-          name: cv-pdf
-          path: CV_Type2.pdf
+          name: compilation-results
+          path: |
+            CV_Type2.pdf
+            CV_Type2.log
