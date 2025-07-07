@@ -1,0 +1,15 @@
+name: Compile LaTeX CV
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: CV_Type2.tex  # Replace with your main .tex filename
+          args: "-shell-escape -interaction=nonstopmode -file-line-error"
