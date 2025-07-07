@@ -55,8 +55,8 @@ pdflatex CV_Type2.tex  # Compile locally
 
 ## Contact
 - **Email**: fulhossain@ku.edu
-- **Academic Profiles**:
-  **ORCiD**: https://orcid.org/0000-0002-4464-7354
-  **InspireHEP**: https://inspirehep.net/authors/2014116?ui-citation-summary=true
-  **Google Scholar**: https://scholar.google.com/citations?user=dSwfpWQAAAAJ
-  **Researchgate**: https://www.researchgate.net/profile/Mohammad-Ful-Hossain-Seikh
+- **Academic Profiles**:<br>
+  **ORCiD**: https://orcid.org/0000-0002-4464-7354<br>
+  **InspireHEP**: https://inspirehep.net/authors/2014116?ui-citation-summary=true<br>
+  **Google Scholar**: https://scholar.google.com/citations?user=dSwfpWQAAAAJ<br>
+  **Researchgate**: https://www.researchgate.net/profile/Mohammad-Ful-Hossain-Seikh<br>
