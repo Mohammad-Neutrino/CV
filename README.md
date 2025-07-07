@@ -3,8 +3,7 @@
 [![PDF Build](https://github.com/Mohammad-Neutrino/CV/actions/workflows/latex.yml/badge.svg)](https://github.com/Mohammad-Neutrino/CV/actions)
 [![Overleaf Sync](https://img.shields.io/badge/Edit_on-Overleaf-47A141?logo=overleaf)](https://www.overleaf.com/project/686b4f6c89d672924116d5c4)
 
-**LaTeX-based CV** for Mohammad Ful Hossain Seikh, Ph.D. Candidate in Astroparticle Physics at the University of Kansas.  
-This repository contains the source files for my dynamically updated academic curriculum vitae.
+**LaTeX-based CV** for Mohammad Ful Hossain Seikh, Ph.D. Candidate in Astroparticle Physics at the University of Kansas. This repository contains the source files for my dynamically updated academic curriculum vitae.
 
 ---
 
@@ -14,7 +13,7 @@ This repository contains the source files for my dynamically updated academic cu
 ### How to Update:
 1. **Edit** `CV_Type*.tex` in Overleaf.
 2. **Recompile** (click "PDF" button in Overleaf).
-3. **Download** the new `CV.pdf` and upload it to this repo (or use Overleaf's GitHub sync).
+3. **Download** the new `CV_Type*.pdf` and upload it to this repo (or use Overleaf's GitHub sync).
 
 ---
 
