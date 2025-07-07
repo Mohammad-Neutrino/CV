@@ -1,69 +1,21 @@
 name: Compile LaTeX CV
-on:
-  push:
-    branches: [ trunk ]
-  workflow_dispatch:  # Allow manual triggers
-  schedule:
-    - cron: '0 12 * * 0'  # Weekly compile every Sunday at 12:00 UTC
+on: [push, workflow_dispatch]
 
 jobs:
-  build:
+  compile:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write  # Required for pushing PDF updates
-
+    container:
+      image: ghcr.io/xu-cheng/texlive-full:latest
     steps:
-      # ----------------------------
-      # 1. SETUP & DEPENDENCIES
-      # ----------------------------
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0  # Full git history
-          ref: trunk  # Explicit branch checkout
-
-      - name: Cache LaTeX dependencies
-        uses: actions/cache@v3
-        with:
-          path: /usr/local/texlive
-          key: texlive-${{ hashFiles('CV_Type2.tex') }}
-          restore-keys: |
-            texlive-
-
-      - name: Install Full TeX Live
+        
+      - name: Compile LaTeX
         run: |
-          sudo apt-get update
-          sudo apt-get install -y texlive-full latexmk
-
-      # ----------------------------
-      # 2. COMPILE LATEX
-      # ----------------------------
-      - name: Compile Document
-        run: |
-          latexmk -pdf -shell-escape -interaction=nonstopmode -file-line-error CV_Type2.tex
-          [ -f CV_Type2.pdf ] || exit 1  # Fail if PDF missing
-
-      # ----------------------------
-      # 3. VERSION CONTROL
-      # ----------------------------
-      - name: Commit and Push PDF
-        run: |
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
+          latexmk -pdf -interaction=nonstopmode -file-line-error CV_Type2.tex
+          ls -la  # Verify PDF exists
           
-          # Only commit if PDF changed
-          git add CV_Type2.pdf
-          git diff-index --quiet HEAD || git commit -m "Auto-update CV [skip ci]"
-          git push origin HEAD:trunk
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      # ----------------------------
-      # 4. OVERLEAF SYNC (SECURE)
-      # ----------------------------
-      - name: Sync to Overleaf
-        if: success() && contains(github.event.head_commit.message, 'Overleaf')
-        run: |
-          git remote add overleaf https://git.overleaf.com/686b4f6c89d672924116d5c4
-          git config --global credential.helper store
-          echo "https://${{ secrets.fulhossain@ku.edu }}:${{ secrets.olp_6In9OQnD4C3WrsmbSnR7DWFEGSX6TR16YV2E }}@git.overleaf.com" > ~/.git-credentials
-          git push overleaf trunk
+      - name: Upload PDF
+        uses: actions/upload-artifact@v3
+        with:
+          name: cv-pdf
+          path: CV_Type2.pdf
