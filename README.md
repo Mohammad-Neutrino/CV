@@ -37,3 +37,26 @@ This repository contains the source files for my dynamically updated academic cu
 ```bash
 git clone https://github.com/Mohammad-Neutrino/CV.git
 pdflatex CV_Type2.tex  # Compile locally
+```
+
+---
+
+## Automatic Compilation
+- GitHub Actions compiles the PDF on every git push (see .github/workflows/latex.yml).
+- Requires latexmk and full TeX Live installation.
+
+---
+
+## Citation & Reuse
+- **Attribution**: If adapting this template, please credit/link to this repository.
+- **License**: CC-BY-NC 4.0 (Non-commercial use with attribution).
+
+---
+
+## Contact
+- **Email**: fulhossain@ku.edu
+- **Academic Profiles**:
+  **ORCiD**: https://orcid.org/0000-0002-4464-7354
+  **InspireHEP**: https://inspirehep.net/authors/2014116?ui-citation-summary=true
+  **Google Scholar**: https://scholar.google.com/citations?user=dSwfpWQAAAAJ
+  **Researchgate**: https://www.researchgate.net/profile/Mohammad-Ful-Hossain-Seikh
