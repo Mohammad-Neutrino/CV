@@ -9,8 +9,7 @@ This repository contains the source files for my dynamically updated academic cu
 ---
 
 ## Latest PDF
-▶ **[Download CV (PDF)](https://github.com/Mohammad-Neutrino/CV/raw/main/CV_Type2.pdf)**  
-*Auto-compiled on every commit via GitHub Actions.*
+**[Download CV (PDF)] *(Compiled in Overleaf)*
 
 ---
 
