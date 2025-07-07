@@ -1,4 +1,4 @@
-# Academic CV | Mohammad Ful Hossain Seikh
+# CV | Mohammad Ful Hossain Seikh
 
 [![PDF Latest Build](https://github.com/Mohammad-Neutrino/CV/actions/workflows/latex.yml/badge.svg)](https://github.com/Mohammad-Neutrino/CV/actions) 
 [![Overleaf Sync](https://img.shields.io/badge/Edit_on-Overleaf-47A141?logo=overleaf)](https://www.overleaf.com/project/686b4f6c89d672924116d5c4)
@@ -27,7 +27,7 @@ This repository contains the source files for my dynamically updated academic cu
 - **Key Features**:
   - Hyperlinked DOIs/arXiv entries
   - Compact itemize/enumerate layouts
-  - Mobile-friendly design (tested with `hyperref`)
+  - Mobile-friendly design (tested with `hyperref`) 
 
 ---
 
