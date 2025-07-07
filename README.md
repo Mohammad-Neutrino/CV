@@ -9,7 +9,7 @@ This repository contains the source files for my dynamically updated academic cu
 ---
 
 ## Latest PDF
-**[Download CV (PDF)] (https://github.com/Mohammad-Neutrino/CV/blob/trunk/CV.pdf) *(Compiled in Overleaf)*
+**[Download CV (PDF)] (https://github.com/Mohammad-Neutrino/CV/blob/trunk/CV.pdf)** *(Compiled in Overleaf)*
 
 ### How to Update:
 1. **Edit** `CV_Type*.tex` in Overleaf.
