@@ -7,7 +7,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          persist-credentials: false  # Required for pushing later
+          fetch-depth: 0  # Crucial for git history
+          persist-credentials: true  # Must be true to push
 
       - name: Compile LaTeX
         uses: xu-cheng/latex-action@v3
@@ -15,12 +16,17 @@ jobs:
           root_file: CV_Type2.tex
           args: "-shell-escape -interaction=nonstopmode -file-line-error"
 
-      - name: Commit PDF
+      - name: Commit and Push PDF
         run: |
+          # Configure git
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
+          
+          # Add and commit
           git add CV_Type2.pdf
-          git commit -m "Auto-update PDF [skip ci]"
-          git push
+          git commit -m "Auto-update PDF [skip ci]" || echo "No changes to commit"
+          
+          # Push changes
+          git push origin HEAD:trunk
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
