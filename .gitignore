@@ -13,3 +13,7 @@ Thumbs.db
 *.bbl
 *.blg
 *.synctex.gz
+.DS_Store
+Thumbs.db
+*.swp
+._*
