@@ -1,0 +1,182 @@
+\documentclass[10pt,letterpaper]{article}
+
+\usepackage[margin=0.62in]{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{parskip}
+\usepackage{xcolor}
+\usepackage{orcidlink}
+\setlength{\parindent}{0pt}
+\setlist[itemize]{leftmargin=*, topsep=2pt, itemsep=2pt, parsep=0pt}
+\titleformat{\section}{\large\bfseries}{}{0em}{}[\titlerule]
+
+\begin{document}
+
+% =========================================================
+% HEADER
+% =========================================================
+\begin{center}
+    {\LARGE \textbf{Mohammad Ful Hossain Seikh}}\\
+    Lawrence, KS $|$ +1 (785) 727-6913 $|$ 
+    \href{mailto:fulhossain@ku.edu}{fulhossain@ku.edu}\\
+    \href{https://github.com/Mohammad-Neutrino}{github.com/Mohammad-Neutrino} 
+\end{center}
+
+% =========================================================
+\section*{Professional Summary}
+
+Algorithm and signal processing researcher with a Ph.D. in Physics and an M.S. in Electrical Engineering, specializing in Python-based algorithm development, RF/radar waveform analysis, digital signal processing, machine learning, statistical modeling, and validation of real-world sensor systems. Experienced in developing analysis pipelines for large experimental datasets, extracting reliable information from noisy measurements, and validating algorithms using simulations, calibration data, and field measurements. Strong fit for roles involving sensor algorithms, radar signal processing, product-focused data analysis, and applied machine learning.
+
+% =========================================================
+\section*{Technical Skills}
+
+\textbf{Programming:} Python, C/C++, FORTRAN, Bash, Git, Linux, macOS, Windows
+
+\textbf{Python/Data Tools:} NumPy, SciPy, pandas, Matplotlib, PyTorch, scikit-learn, ROOT, uproot
+
+\textbf{Algorithms and Signal Processing:} digital signal processing, radar signal processing, time-series analysis, waveform analysis, FFT/spectral analysis, filtering, cross-correlation, feature extraction, classification, statistical modeling, background rejection, optimization, validation
+
+\textbf{Machine Learning:} CNNs, U-Net, weak supervision, image segmentation, BCE/Dice loss, IoU/F1 evaluation, model training and evaluation
+
+\textbf{RF/Radar/Instrumentation:} antenna measurements, S-parameters, impedance, VSWR, group delay, gain/beam patterns, RF signal-chain modeling, noise modeling, detector calibration, trigger/digitizer systems
+
+\textbf{Simulation and Engineering Tools:} AraSim, NuRadioMC, HFSS, CERN ROOT, AraRoot, \LaTeX
+
+% =========================================================
+\section*{Education}
+
+\textbf{Ph.D. in Physics}, University of Kansas \hfill 2020--2026\\
+GPA: 3.964/4.0
+
+\textbf{M.S. in Electrical Engineering}, University of Kansas \hfill 2024--2025\\
+Focus: RF engineering, antennas, radar systems, digital signal processing, machine learning\\
+GPA: 3.778/4.0
+
+\textbf{M.Sc. in Physics}, Aligarh Muslim University \hfill 2018--2020\\
+GPA: 9.170/10, Gold Medalist
+
+\textbf{B.Sc. Honors in Physics}, Aligarh Muslim University \hfill 2015--2018\\
+GPA: 9.186/10, Gold Medalist
+
+% =========================================================
+\section*{Professional and Research Experience}
+
+\textbf{Graduate Research Assistant / Primary Data Analyzer, Askaryan Radio Array} \hfill 2021--2026\\
+University of Kansas, Department of Physics \& Astronomy
+\begin{itemize}
+    \item Developed Python/C++ analysis algorithms for RF detector data, including waveform preprocessing, event reconstruction, detector calibration, data cleaning, and background rejection.
+    \item Built analysis pipelines for multi-year ARA Station 1 datasets, working with noisy RF waveforms, impulsive transients, continuous-wave interference, calibration pulser data, and simulated signal events.
+    \item Designed and evaluated signal-processing variables based on SNR, RMS, spectral behavior, cross-correlation, reconstruction quality, impulsivity, and waveform morphology.
+    \item Developed data-driven detector models for livetime, thermal noise, signal-chain gain, antenna response, and detector configuration changes.
+    \item Implemented fast-filter and linear-discriminant classification methods to separate signal-like events from thermal and non-thermal backgrounds.
+    \item Validated algorithm performance using known calibration sources, simulated events, independent reconstruction tools, and background-control samples.
+    \item Worked across a multi-institutional collaboration, presented technical results, documented analysis methods, and contributed to peer-reviewed publications.
+\end{itemize}
+
+\textbf{RF / Signal Processing Software Developer, AAFIYA Project} \hfill 2024--2025\\
+University of Kansas, Electrical Engineering \& Computer Science
+\begin{itemize}
+    \item Developed \textbf{AAFIYA}, a modular Python toolkit for antenna characterization and RF measurement analysis from experimental and simulation data.
+    \item Implemented data ingestion for Touchstone S-parameter files and beam-pattern text files, enabling reproducible RF analysis workflows.
+    \item Automated calculation and visualization of S11/S21, VSWR, complex impedance, group delay, realized gain, beamwidth, front-to-back ratio, realized vector effective length, and cross-polarization ratio.
+    \item Compared measured antenna data against HFSS and WIPL-D/NuRadioMC simulations to validate RF measurement and modeling workflows.
+    \item Built publication-quality plotting routines for frequency-domain and angular antenna-response studies.
+\end{itemize}
+
+\textbf{Machine Learning Researcher, Radar Echogram Segmentation Project} \hfill 2025\\
+University of Kansas, EECS Machine Learning
+\begin{itemize}
+    \item Developed a CNN/U-Net based segmentation pipeline for automatic air-snow boundary detection in radar echograms.
+    \item Built a weak-to-strong training workflow using Sobel/Canny-generated weak labels and a smaller manually labeled dataset.
+    \item Implemented preprocessing, manual labeling, weak-label generation, model training, evaluation, and visualization scripts in Python.
+    \item Evaluated segmentation performance using IoU and F1 score, and improved model behavior using a combined binary cross-entropy and Dice-loss objective.
+\end{itemize}
+
+\textbf{RF Field Researcher, RNO-G Calibration Campaign} \hfill Apr--May 2025\\
+Summit Station, Greenland
+\begin{itemize}
+    \item Participated in a field calibration campaign for the Radio Neutrino Observatory in Greenland.
+    \item Supported in-situ RF measurements, antenna deployment, waveform recording, equipment setup, and detector-response validation in a remote field environment.
+    \item Worked with real measurement constraints, including field hardware, timing, waveform quality, and calibration-source geometry.
+\end{itemize}
+
+
+% =========================================================
+\section*{Selected Publications and Technical Outputs}
+
+\begin{itemize}
+    \item M.F.H. Seikh, R. Jarvis, J. Stiles, ``AAFIYA: Antenna Analysis in Frequency-domain for Impedance and Yield Assessment,'' accepted, IEEE AP-S/URSI Symposium, 2026.
+    \item M.F.H. Seikh for the ARA Collaboration, ``Calibration and Physics with ARA Station 1,'' PoS(ICRC2023)1163.
+    \item M.F.H. Seikh, P. Giri, D. Besson for the ARA Collaboration, ``Techniques for Continuous Wave Identification and Filtering in the Askaryan Radio Array,'' PoS(ICRC2025)1171.
+    \item M.F.H. Seikh, D. Besson for the RNO-G Collaboration, ``Observation of Radio Solar Flares in RNO-G,'' PoS(ICRC2025)1365.
+    \item M.F.H. Seikh, ``Physics of radio antennas,'' European Physical Journal Special Topics, 2025.
+    \item M.F.H. Seikh for the ARA Collaboration, ``Askaryan Radio Array: searching for the highest energy neutrinos,'' European Physical Journal Special Topics, 2025.
+\end{itemize}
+
+Full publication (includes contributions to ARA, RNO-G, ARIANNA, IceCube, IceCube Gen2, PUEO, TAROGE-M and RET collaborations) record available on:
+\begin{center}
+    \href{https://inspirehep.net/authors/2014116}{Inspire HEP} ;~~\href{https://scholar.google.com/citations?user=dSwfpWQAAAAJ}{Google Scholar} ;~~\href{https://www.researchgate.net/profile/Mohammad-Ful-Hossain-Seikh}{ResearchGate} ;~ORCiD \orcidlink{0000-0002-4464-7354} ;~~\href{https://www.scopus.com/authid/detail.uri?authorId=57426893600}{Scopus}
+\end{center}
+
+% =========================================================
+\section*{Selected Coursework}
+
+\begin{itemize}
+    \item Radio Antennas
+    \item Introduction to Radar Systems
+    \item Digital Signal Processing
+    \item Detection and Estimation Theory
+    \item Machine Learning
+    \item Microwave Engineering
+    \item Advanced Electromagnetics
+    \item Fiber-Optic Measurements and Sensors
+    \item Computational Methods in Physical Sciences
+\end{itemize}
+
+% =========================================================
+\section*{Selected Presentations}
+
+\begin{itemize}
+    \item \textbf{Pioneering an Array-Wide Search for Ultra-high Energy Neutrinos with ARA}, APS Global Physics Summit, 2026.
+    \item \textbf{Radio Engineering for Particle Astrophysics Experiments}, HEP Seminar, University of Nebraska-Lincoln, 2025.
+    \item \textbf{Radio Engineering for Particle Astrophysics Experiments}, Astroparticle Seminar, Ohio State University, 2025.
+    \item \textbf{Radio Engineering \& Antenna Physics}, IEI Summer School, University of Alaska Anchorage, 2024.
+    \item \textbf{Antenna Physics \& Measurements}, IEI Summer School, South Dakota School of Mines, 2023.
+    \item \textbf{Gain Calibration of RNO-G Antennas}, RNO-G Fall Meeting, Penn State University, 2023.
+\end{itemize}
+
+% =========================================================
+\section*{Honors and Awards}
+
+\begin{itemize}
+    \item Ralston Dissertation Fellowship, KU Physics \hfill 2025--2026
+    \item McKeithan Summer Fellowship, KU Physics \hfill 2025
+    \item Graduate Student Award for Distinguished Service, KU \hfill 2024--2025
+    \item Wallace S. Strobel Scholarship, KU Electrical Engineering \& Computer Science \hfill 2024--2025
+    \item Doctoral Student Research Fund, KU \hfill 2024
+    \item University Gold Medalist, M.Sc. Physics, Aligarh Muslim University \hfill 2020
+    \item University Gold Medalist, B.Sc. Honors Physics, Aligarh Muslim University \hfill 2018
+\end{itemize}
+
+% =========================================================
+\section*{Leadership and Collaboration}
+
+\begin{itemize}
+    \item Analysis Lead, Radio Background Characterization with ARA \hfill 2025--2026
+    \item KU representative for IceCube Neutrino Observatory monitoring shifts \hfill 2021--2026
+    \item Book Editor, EPJ-ST special issue on radio detection of ultra-high energy neutrinos and cosmic rays \hfill 2024--2025
+    \item Graduate President, Society of Physics Students, KU Chapter \hfill 2021--2022
+    \item Peer mentor and outreach team lead, Sir Syed Global Scholar Award \hfill 2021--2025
+\end{itemize}
+
+% =========================================================
+\section*{Supplementary Documents}
+\begin{itemize}
+    \item {\bf PhD Dissertation Draft:} \href{https://drive.google.com/file/d/1UinAq1_QPhyicPmoP562Z46e-ZZy6qXk/view?usp=share_link}{Google Drive}
+    \item {\bf MS Project:} \href{https://drive.google.com/file/d/1Vxa1qtpn6p3xxFlJj_6PylMjX3EVx9bg/view?usp=share_link}{Google Drive}, \href{https://github.com/Mohammad-Neutrino/AAFIYA.git}{GitHub Repository}
+    \item {\bf Machine Learning Project:} \href{https://drive.google.com/file/d/19XtX8lAJLDx0Ne5y5iumGRRqAPhCx56o/view?usp=share_link}{Google Drive}, \href{https://github.com/Mohammad-Neutrino/Machine_Learning_Project.git}{GitHub Repository}
+\end{itemize}
+    
+
+\end{document}
