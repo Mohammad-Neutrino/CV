@@ -3,63 +3,82 @@
 [![PDF Build](https://github.com/Mohammad-Neutrino/CV/actions/workflows/latex.yml/badge.svg)](https://github.com/Mohammad-Neutrino/CV/actions)
 [![Overleaf Sync](https://img.shields.io/badge/Edit_on-Overleaf-47A141?logo=overleaf)](https://www.overleaf.com/project/686b4f6c89d672924116d5c4)
 
-**LaTeX-based CV** for Mohammad Ful Hossain Seikh, Ph.D. Candidate in Astroparticle Physics at the University of Kansas. This repository contains the source files for my dynamically updated academic curriculum vitae.
+LaTeX-based academic CV for Mohammad Ful Hossain Seikh, Postdoctoral Researcher in Particle Astrophysics at the University of Kansas.
+
+The canonical source is `cv.tex`. GitHub Actions automatically compiles it into `cv.pdf` whenever the source is updated.
 
 ---
 
 ## Latest PDF
-**[Download CV (PDF)](https://github.com/Mohammad-Neutrino/CV/blob/trunk/CV_Type2.pdf)** *(Compiled in Overleaf)*
 
-### How to Update:
-1. **Edit** `CV_Type*.tex` in Overleaf.
-2. **Recompile** (click "PDF" button in Overleaf).
-3. **Download** the new `CV_Type*.pdf` and upload it to this repo (or use Overleaf's GitHub sync).
+**[Download CV (PDF)](https://github.com/Mohammad-Neutrino/CV/raw/refs/heads/trunk/cv.pdf)**
+
+**[View LaTeX source](https://github.com/Mohammad-Neutrino/CV/blob/trunk/cv.tex)**
 
 ---
 
-## Technical Details
-- **Template**: Custom LaTeX (`report` class) with hyperref, xurl, and modern formatting.
-- **Sections**: 
-  - Education, Research Experience, Publications (First-Author & Collaborative)
-  - Professional Service, Technical Skills, Honors/Awards
-  - Outreach, Invited Lectures, Conference Presentations
-- **Key Features**:
-  - Hyperlinked DOIs/arXiv entries
-  - Compact itemize/enumerate layouts
-  - Mobile-friendly design (tested with `hyperref`) 
+## Updating the CV
 
----
+### Overleaf
 
-## How to Edit
-### Option 1: Overleaf (Recommended)
-1. **Import** this repo into [Overleaf](https://www.overleaf.com) via GitHub integration.
-2. Edit `CV_Type2.tex` with real-time LaTeX preview.
-3. Push changes back to GitHub via Overleaf’s Git sync.
+1. Edit `cv.tex`.
+2. Push or sync the updated source to the `trunk` branch.
+3. GitHub Actions automatically compiles and commits the updated `cv.pdf`.
 
-### Option 2: Local LaTeX Editor
+### Local editing
+
 ```bash
 git clone https://github.com/Mohammad-Neutrino/CV.git
-pdflatex CV_Type2.tex  # Compile locally
+cd CV
+pdflatex cv.tex
 ```
+
+For routine updates, only `cv.tex` needs to be maintained.
 
 ---
 
 ## Automatic Compilation
-- GitHub Actions compiles the PDF on every git push (see .github/workflows/latex.yml).
-- Requires latexmk and full TeX Live installation.
+
+The workflow in `.github/workflows/latex.yml`:
+
+1. checks out the repository,
+2. compiles `cv.tex`,
+3. verifies that `cv.pdf` was produced,
+4. commits the updated PDF back to `trunk`.
+
+The workflow also supports manual execution from the GitHub Actions interface.
+
+---
+
+## Repository Structure
+
+- `cv.tex` - current academic CV
+- `cv.pdf` - automatically generated PDF
+- `cv-default.tex` - earlier/default CV version
+- `cv-fellowship-application.tex` - fellowship-oriented CV version
+- `.github/workflows/latex.yml` - automatic PDF build workflow
 
 ---
 
 ## Citation & Reuse
-- **Attribution**: If adapting this template, please credit/link to this repository.
-- **License**: CC-BY-NC 4.0 (Non-commercial use with attribution).
+
+The LaTeX structure and formatting of this CV may be adapted for personal academic use.
+
+If you reuse or substantially adapt the template, please credit Mohammad Ful Hossain Seikh and link to this repository.
+
+The biographical, scholarly, employment, publication, presentation, and other personal content in this repository is not intended for reuse.
+
+---
+
+## Academic Profiles
+
+- [ORCID](https://orcid.org/0000-0002-4464-7354)
+- [INSPIRE HEP](https://inspirehep.net/authors/2014116)
+- [Google Scholar](https://scholar.google.com/citations?user=dSwfpWQAAAAJ)
+- [ResearchGate](https://www.researchgate.net/profile/Mohammad-Ful-Hossain-Seikh)
 
 ---
 
 ## Contact
-- **Email**: fulhossain@ku.edu
-- **Academic Profiles**:<br>
-  **ORCiD**: https://orcid.org/0000-0002-4464-7354<br>
-  **InspireHEP**: https://inspirehep.net/authors/2014116?ui-citation-summary=true<br>
-  **Google Scholar**: https://scholar.google.com/citations?user=dSwfpWQAAAAJ<br>
-  **Researchgate**: https://www.researchgate.net/profile/Mohammad-Ful-Hossain-Seikh<br>
+
+**Email:** fulhossain@ku.edu
