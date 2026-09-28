@@ -55,7 +55,6 @@ The workflow also supports manual execution from the GitHub Actions interface.
 - `cv.tex` - current academic CV
 - `cv.pdf` - automatically generated PDF
 - `cv-default.tex` - earlier/default CV version
-- `cv-fellowship-application.tex` - fellowship-oriented CV version
 - `.github/workflows/latex.yml` - automatic PDF build workflow
 
 ---
@@ -82,3 +81,5 @@ The biographical, scholarly, employment, publication, presentation, and other pe
 ## Contact
 
 **Email:** fulhossain@ku.edu
+
+**Website:** https://mohammad-neutrino.github.io/
