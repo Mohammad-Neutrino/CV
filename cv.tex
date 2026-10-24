@@ -1,341 +1,382 @@
-\documentclass[10pt]{report}
-\usepackage[utf8]{inputenc}
-\usepackage{titlesec}
-\titleformat{\section}{\normalfont\Large\bfseries}{}{0pt}{}[\vspace{0.35ex}\titlerule]
-\titlespacing*{\section}{0pt}{1.7ex plus .3ex minus .2ex}{0.7ex}
-\titleformat{\subsection}{\normalfont\large\bfseries}{}{0pt}{}
-\titlespacing*{\subsection}{0pt}{1.4ex plus .2ex minus .2ex}{0.5ex}
+\documentclass[11pt,letterpaper]{report}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=0.63in,top=0.62in,bottom=0.62in]{geometry}
+\usepackage{microtype}
 \usepackage{graphicx}
-\usepackage{float}
-\usepackage[letterpaper,top=0.80in,bottom=0.80in,left=1in,right=1in]{geometry}
-\usepackage{hyperref}
+\usepackage{amsmath,amssymb}
+\usepackage{titlesec}
 \usepackage{enumitem}
-\usepackage{amsmath}
 \usepackage{needspace}
-\newcommand{\cvkeepitem}[2]{%
-    \item
-    \begin{minipage}[t]{\linewidth}
-        #1\\
-        #2
-    \end{minipage}
-}
-\usepackage{amssymb}
-\usepackage{orcidlink}
-\usepackage{color}
-\usepackage{parskip}
+\usepackage{xcolor}
 \usepackage{xurl}
-\usepackage{etoolbox}
-\apptocmd{\sloppy}{\hbadness 10000\relax}{}{} % Allow more flexible line breaks
-\Urlmuskip=0mu plus 2mu
-\urlstyle{same}
-\hypersetup{breaklinks=true}
-\emergencystretch=2em
-\newcommand{\doi}[1]{\href{https://doi.org/#1}{\nolinkurl{DOI:#1}}}
-\newcommand{\arxiv}[1]{\href{https://arxiv.org/abs/#1}{\nolinkurl{arXiv:#1}}}
-\setlist[itemize]{leftmargin=*, itemsep=1pt, topsep=2pt, parsep=0pt, partopsep=0pt}
-\setlist[itemize,2]{itemsep=0pt, topsep=1pt}
+\usepackage{hyperref}
+\usepackage{fancyhdr,lastpage}
+\usepackage{academicons}
+\usepackage{fontawesome5}
+\newcommand{\profilelink}[3]{\href{#1}{#2\,#3}}
 
+\definecolor{Primary}{HTML}{18364C}
+\definecolor{LinkBlue}{HTML}{0B4F8A}
+\definecolor{Muted}{HTML}{64717B}
+\definecolor{Rule}{HTML}{AFBEC6}
+\hypersetup{colorlinks=true,linkcolor=LinkBlue,urlcolor=LinkBlue,citecolor=LinkBlue,breaklinks=true,pdftitle={Curriculum Vitae - Mohammad Ful Hossain Seikh},pdfauthor={Mohammad Ful Hossain Seikh}}
+\urlstyle{same}
+\Urlmuskip=0mu plus 2mu
+\emergencystretch=1.5em
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\tabcolsep}{0pt}
+\raggedbottom
+\titleformat{\section}{\normalfont\fontsize{11.3}{13}\selectfont\bfseries\color{Primary}}{}{0pt}{}[\vspace{0.30ex}{\color{Rule}\titlerule[0.4pt]}]
+\titlespacing*{\section}{0pt}{1.70ex plus .25ex minus .15ex}{0.80ex}
+\titleformat{\subsection}{\normalfont\fontsize{10.8}{12.5}\selectfont\bfseries\color{Primary}}{}{0pt}{\textcolor{LinkBlue}{\rule[-0.10em]{2.2pt}{1.07em}}\hspace{0.50em}}
+\titlespacing*{\subsection}{0pt}{1.40ex plus .15ex minus .1ex}{0.50ex}
+\setlist[itemize]{leftmargin=1.2em,label={\color{Muted}\textbullet},itemsep=1.4pt,topsep=1.2pt,parsep=0pt,partopsep=0pt}
+\setlist[itemize,2]{leftmargin=1.55em,label={\color{Muted}\textendash},itemsep=0.6pt,topsep=0.7pt}
+\newcommand{\cvdate}[1]{{\normalfont\itshape\color{Muted}(#1)}}
+\newcommand{\cvdated}[2]{#1\enspace\cvdate{#2}\par\nobreak}
+\newcommand{\cvkeepitem}[2]{\item \begin{minipage}[t]{\linewidth}#1#2\end{minipage}}
+% Reverse numbering is reserved for scholarly output; append new items at the top.
+\newcounter{cvitemrank}
+\newenvironment{cvnumbered}[1]{%
+  \setcounter{cvitemrank}{#1}%
+  \begin{list}{\textcolor{Muted}{[\arabic{cvitemrank}]}}{%
+    \setlength{\leftmargin}{2.25em}\setlength{\labelwidth}{1.65em}
+    \setlength{\labelsep}{0.45em}\setlength{\itemindent}{0pt}
+    \setlength{\itemsep}{0.3pt}\setlength{\topsep}{1.5pt}
+    \setlength{\parsep}{0pt}\setlength{\partopsep}{0pt}}%
+}{\end{list}}
+\newcommand{\cvnumitem}{\item\addtocounter{cvitemrank}{-1}}
+% Publication-only lists: retain CV numbering but match the standalone bibliography spacing.
+\newenvironment{cvpubnumbered}[1]{\begin{cvnumbered}{#1}\setlength{\itemsep}{2.2pt}\setlength{\topsep}{3pt}}{\end{cvnumbered}}
+
+\newcommand{\doi}[1]{{\urlstyle{tt}\href{https://doi.org/#1}{\nolinkurl{DOI:#1}}}}
+\newcommand{\cvlinkeddoi}[2]{{\urlstyle{tt}\href{#1}{\mbox{\nolinkurl{DOI:#2}}}}}
+\newcommand{\arxiv}[1]{\href{https://arxiv.org/abs/#1}{arXiv:#1}}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyfoot[C]{\fontsize{8}{9}\selectfont\color{Muted} \thepage\,/\,\pageref{LastPage}}
+\setlength{\footskip}{18pt}
 \begin{document}
+\fontsize{10.8}{12.9}\selectfont
+
 
 \begin{center}
-    {\bf \LARGE Curriculum Vitae}\\[0.08cm]
-    \href{https://physics.ku.edu/people/seikh-mohammad-ful-hossain}{Mohammad Ful Hossain Seikh}\enspace\textbar\enspace\textcolor{blue}{fulhossain@ku.edu}\enspace\textbar\enspace\href{https://mohammad-neutrino.github.io/}{Website}
-    \rule{\textwidth}{0.4pt}
-    1251 Wescoe Hall Drive, Malott 6044, Lawrence, KS 66044, USA
+{\fontsize{21}{23}\selectfont\bfseries\color{Primary} Mohammad Ful Hossain Seikh}\\[4pt]
+{\normalsize Postdoctoral Researcher \;|\; Department of Physics \& Astronomy, University of Kansas}\\[4pt]
+
+{\small
+\profilelink{mailto:fulhossain@ku.edu}{\faEnvelope}{fulhossain@ku.edu}\enspace\textbar\enspace
+\textcolor{Primary}{\faPhone}\, +1 (785) 727-6913\enspace\textbar\enspace
+\profilelink{https://mohammad-neutrino.github.io/}{\faGlobe}{Website}\enspace\textbar\enspace
+\profilelink{https://github.com/Mohammad-Neutrino}{\faGithub}{GitHub}\par}
+
+\vspace{5pt}
+{\color{Rule}\hrule height 0.4pt}
+\vspace{5pt}
+
+{\small
+\profilelink{https://orcid.org/0000-0002-4464-7354}{\aiOrcid}{ORCID}\quad
+\profilelink{https://inspirehep.net/authors/2014116}{{\sffamily\bfseries iN}}{INSPIRE-HEP}\quad
+\profilelink{https://scholar.google.com/citations?user=dSwfpWQAAAAJ}{\aiGoogleScholar}{Google Scholar}\quad
+\profilelink{https://www.researchgate.net/profile/Mohammad-Ful-Hossain-Seikh}{\aiResearchGate}{ResearchGate}\quad
+\profilelink{https://www.scopus.com/authid/detail.uri?authorId=57426893600}{\aiScopus}{Scopus}\par}
+\vspace{5pt}
+{\color{Rule}\hrule height 0.4pt}
+\vspace{5pt}
 \end{center}
 
+
+
 % ------------------------------
+
 \section*{Education}
 
-\noindent
-\textbf{Ph.D. in Physics} \textit{2020--2026} \\
-University of Kansas, USA \hfill \textbf{3.964/4.0}
+\begingroup
+\setlength{\leftskip}{1.5em}
+\setlength{\parindent}{0pt}
 
-\vspace{0em}
-\noindent
-\textbf{M.S. in Electrical Engineering}    \textit{2024--2025} \\
-University of Kansas, USA \hfill \textbf{3.778/4.0}
+\cvdated{\textbf{Ph.D. in Physics}}{2020--2026}
+University of Kansas, USA\enspace|\enspace GPA: 3.964/4.0\par\vspace{3pt}
 
-\vspace{0em}
-\noindent
-\textbf{M.Sc. in Physics}  \textit{2018--2020} \\
-Aligarh Muslim University, India \hfill \textbf{9.170/10} (Gold Medalist)
+\cvdated{\textbf{M.S. in Electrical Engineering}}{2024--2025}
+University of Kansas, USA\enspace|\enspace GPA: 3.778/4.0\par\vspace{3pt}
 
-\vspace{0em}
-\noindent
-\textbf{B.Sc. Honors in Physics}  \textit{2015--2018} \\
-Aligarh Muslim University, India \hfill \textbf{9.186/10} (Gold Medalist)
+\cvdated{\textbf{M.Sc. in Physics}}{2018--2020}
+Aligarh Muslim University, India\enspace|\enspace GPA: 9.170/10 \textit{(Gold Medalist)}\par\vspace{3pt}
+
+\cvdated{\textbf{B.Sc. Honors in Physics}}{2015--2018}
+Aligarh Muslim University, India\enspace|\enspace GPA: 9.186/10 \textit{(Gold Medalist)}\par
+
+\endgroup
 
 % ------------------------------
 \section*{Research Experience}
 
-\subsection*{\underline{Research Roles and Appointments}}
+\subsection*{Research Roles and Appointments}
 \begin{itemize}
-    \item {\bf Postdoctoral Researcher: Particle Astrophysics, University of Kansas} \textit{Jun 2026--Present} \\
-    Research on ultra-high energy particle detection with radio techniques, including the ARA five-station data analysis, radio-background characterization, and detector studies with Prof.\ D. Besson.
+    \item \cvdated{{\bf Postdoctoral Researcher: Particle Astrophysics, University of Kansas}}{Jun 2026--Present}
+    Study radio detection of ultra-high energy particles, backgrounds, and detector response with Prof.\ D. Besson.
 
-    \item \textbf{Core Analyst, ARA Five-Station Diffuse Neutrino Search} \textit{2022--Present} \\
-    One of eight analyzers conducting the first array-wide diffuse ultra-high energy neutrino search using 10.6 years of ARA data. Integrated the ARA01 analysis into the common multi-station framework and contributed to array-wide optimization, unblinding, and interpretation of the final result.
+    \item \cvdated{\textbf{Core Analyst, ARA Five-Station Diffuse Neutrino Search}}{2022--Present}
+    One of eight core analysts for the 10.6-year five-station ARA diffuse search. Integrated ARA01 into the common framework and contributed to optimization, unblinding, and interpretation.
 
-    \item \textbf{Analysis Lead, Non-Anthropogenic Down-going Signals in ARA} \textit{Jul 2026--Present} \\
+    \item \cvdated{\textbf{Analysis Lead, Non-Anthropogenic Down-going Signals in ARA}}{Jul 2026--Present}
     Leading an array-wide search across all five ARA stations for down-going radio signals inconsistent with known anthropogenic backgrounds.
 
-    \item \textbf{Analysis Lead, Radio Background Characterization with ARA} \textit{Dec 2025--Present} \\
-    Leading studies of astrophysical, environmental, and anthropogenic radio backgrounds in ARA data, including solar activity, galactic noise, high-wind triboelectric events, radiosondes, and local sources.
+    \item \cvdated{\textbf{Analysis Lead, Radio Background Characterization with ARA}}{Dec 2025--Present}
+    Leading studies of astrophysical, environmental, and anthropogenic radio backgrounds in ARA data, including solar activity, galactic noise, high wind triboelectric events, radiosondes, and local sources.
 
-    \item \textbf{Primary Analyzer, Askaryan Radio Array (ARA) Station 1} \textit{2021--2026} \\
-    Led the end-to-end ARA01 analysis for ultra-high energy neutrino searches, including detector calibration and data-driven modeling, event reconstruction, background rejection, and simulation. Developed the station-specific analysis framework later incorporated into the full-array search.
+    \item \cvdated{\textbf{Primary Analyzer, Askaryan Radio Array (ARA) Station 1}}{2021--2026}
+    Led ARA01 calibration, data-driven detector modeling, reconstruction, background rejection, and simulation. Developed its analysis framework for the array-wide search.
 
-    \item \textbf{Monitoring Shifter, IceCube Neutrino Observatory} \textit{2021--2026} \\
+    \item \cvdated{\textbf{Monitoring Shifter, IceCube Neutrino Observatory}}{2021--2026}
     Served as KU representative for monitoring shifts, presenting weekly reports to the collaboration.
 
-    \item \textbf{Visiting Summer Student} \textit{May--Jul 2019} \\
-    Studied ``Importance of 1-3 Mixing Angle in Three-Flavor Neutrino Oscillations Paradigm'' with Prof.\ S.K. Agarwalla at the Institute of Physics, India, producing technical report   \href{https://www.researchgate.net/publication/340095776_Importance_of_1-3_Mixing_Angle_in_Three-Flavor_Neutrino_Oscillations_Paradigm_SSVP_Summer_Project_Report}{DOI: 10.13140/RG.2.2.34421.12009}.
+    \item \cvdated{\textbf{Visiting Summer Student}}{May--Jul 2019}
+    Studied ``Importance of 1-3 Mixing Angle in Three-Flavor Neutrino Oscillations Paradigm'' with Prof.\ S.K. Agarwalla at the Institute of Physics, India, producing technical report   \cvlinkeddoi{https://www.researchgate.net/publication/340095776_Importance_of_1-3_Mixing_Angle_in_Three-Flavor_Neutrino_Oscillations_Paradigm_SSVP_Summer_Project_Report}{10.13140/RG.2.2.34421.12009}.
 
-    \item \textbf{Winter Research Intern} \textit{Dec 2019--Jan 2020} \\
+    \item \cvdated{\textbf{Winter Research Intern}}{Dec 2019--Jan 2020}
     Researched ``Weak Interaction Physics'' at Indian Institute of Technology--BHU with Prof. G. Abbas.
 \end{itemize}
 
-\subsection*{\underline{Selected Dissertations, Theses, and Projects}}
-\begin{itemize}
-    \cvkeepitem
-    { \textbf{Physics PhD Dissertation} \textit{2020--2026}} 
-    {``Toward a Five-Station Diffuse Ultra-High Energy Neutrino Search with the Askaryan Radio Array: ARA01 Analysis Framework.'' Defended May 8, 2026. Advised by Prof.\ D. Besson. Published on ProQuest \href{https://www.proquest.com/docview/3356640779/fulltextPDF/4CCB4101302F4FB5PQ}{ISBN: 9798252480190} and \href{https://kuscholarworks.ku.edu/items/9ae474ac-8647-476e-9986-d901787aed21}{KU ScholarWorks}.}
-
-    \item \textbf{Electrical Engineering Master's Project} \textit{2024--2025} \\
-    Developed \textbf{AAFIYA}, an open-source Python toolkit for antenna measurement, simulation, and characterization, with Prof.\ Jim Stiles at KU EECS. The project led to an accepted contribution at the 2026 IEEE AP-S/URSI Symposium. (\href{https://github.com/Mohammad-Neutrino/AAFIYA}{GitHub}), (\href{https://drive.google.com/file/d/16pZq9mp9qqmyMbJ__h_DtHzoyZJUpfUi/view?usp=share_link}{Report}), (\href{https://drive.google.com/file/d/1gTU03rgjUmX7zF2z2f57pjpDCmZjiHhI/view?usp=share_link}{Slides}).\\
-
-    \item \textbf{Machine Learning Course Project} \textit{2025} \\
-    Developed a CNN model for ``Automatic Surface Detection in Echograms using Deep Learning'' in a KU EECS machine-learning course. (\href{https://github.com/Mohammad-Neutrino/Machine_Learning_Project}{GitHub}), (\href{https://github.com/Mohammad-Neutrino/Machine_Learning_Project/blob/trunk/Project/report/final_report.pdf}{Report}).
-
-    \item \textbf{Physics Master's Thesis} \textit{2019--2020} \\
-    Investigated light sterile neutrino oscillations with Prof.\ M.S. Athar at Aligarh Muslim University, producing the review report ``Light Sterile Neutrinos: Status and Prospects.'' \href{https://www.researchgate.net/publication/354254795_LIGHT_STERILE_NEUTRINOS_OSCILLATION_STATUS_AND_PROSPECTS}{\nolinkurl{DOI:10.13140/RG.2.2.13777.66405}}.
-
-    \item \textbf{Physics Undergraduate Project} \textit{2017--2018} \\
-    ``Quarks \& Leptons'': detailed study of Standard Model interactions with Prof.\ M.S. Athar at AMU (\href{https://drive.google.com/file/d/11LsyY1QmncnjOGf1ZWpj7eTM-xcTbCNj/view?usp=sharing}{Handwritten Report}).
-\end{itemize}
 
 % ------------------------------
-\subsection*{\underline{Scientific Software and Open-Source Development}}
+\subsection*{Scientific Software and Open-Source Development}
 \begin{itemize}
-    \item \textbf{MAHAM:} \textbf{M}odules for \textbf{A}stroparticle, \textbf{H}igh-energy, \textbf{A}stronomy and \textbf{M}ultimessenger \textit{2026--Present} \\
-    Founder and lead developer of \href{https://github.com/Project-MAHAM}{\tt Project MAHAM}, an open-source Python toolkit under active development for reusable, validated, and citable scientific methods and data products in astroparticle physics, high-energy astrophysics, astronomy, and multimessenger research. Established the package architecture, scientific provenance and validation framework, with current development spanning neutrino spectra and models, experimental limits and sensitivities, detector-response calculations, statistical methods, and reproducible literature datasets.
+    \item \cvdated{\textbf{MAHAM:} \textbf{M}odules for \textbf{A}stroparticle, \textbf{H}igh-energy, \textbf{A}stronomy and \textbf{M}ultimessenger}{2026--Present}
+    Founder and lead developer of \href{https://github.com/Project-MAHAM}{\tt Project MAHAM}, an open-source framework for validated and reusable methods in astroparticle physics and multimessenger astronomy. Designed its architecture and provenance checks; developing neutrino spectra, experimental limits, detector response, statistics, and literature datasets.
 
-    \item \textbf{AAFIYA:} \textbf{A}ntenna \textbf{A}nalysis in \textbf{F}requency-domain for \textbf{I}mpedance \& \textbf{Y}ield \textbf{A}ssessment \textit{2024--Present} \\
-    Creator and developer of \href{https://github.com/Mohammad-Neutrino/AAFIYA}{\tt AAFIYA}, an open-source Python toolkit for reproducible antenna characterization using measurement and simulation data. Implements S-parameter and impedance analysis, gain and beam-pattern characterization, beamwidth, front-to-back and cross-polarization metrics, realized vector effective length, and measurement-to-simulation validation, with ongoing development toward a more integrated reusable software package.
+    \item \cvdated{\textbf{AAFIYA:} \textbf{A}ntenna \textbf{A}nalysis in \textbf{F}requency-domain for \textbf{I}mpedance \& \textbf{Y}ield \textbf{A}ssessment}{2024--Present}
+    Creator of \href{https://github.com/Mohammad-Neutrino/AAFIYA}{\tt AAFIYA}, an open-source toolkit for antenna measurements and simulations, including S-parameters, impedance, gain patterns, polarization, vector effective length, and measurement-to-simulation comparisons.
 
-    \item \textbf{AraProc: ARA Data Analysis Framework} \textit{2024--Present} \\
+    \item \cvdated{\textbf{AraProc: ARA Data Analysis Framework}}{2024--2026}
     Co-developer of the ARA Collaboration's
     \href{https://github.com/ara-software/AraProc}{\tt AraProc} Python analysis framework, with 21 merged pull requests covering waveform analysis, event reconstruction, CW filtering, and data quality improvements.
 \end{itemize}
 
 % ------------------------------
-\subsection*{\underline{Field Experience}}
+\subsection*{Field Experience}
 
 \begin{itemize}
-    \item
-    \textbf{NSF's Summit Station, Greenland Field Campaign} \textit{Apr--May 2025} \\
-    Participated in the Radio Neutrino Observatory in Greenland (RNO-G) calibration campaign, performing in situ radio-frequency measurements and equipment deployment at Summit Station, Greenland.
+    \item \cvdated{\textbf{NSF's Summit Station, Greenland Field Campaign}}{Apr--May 2025}
+    Participated in the RNO-G calibration campaign, conducting in-situ radio frequency measurements, setting up measurement instruments, and deploying equipment at Summit Station, Greenland.
 \end{itemize}
 
 % ------------------------------
+\subsection*{Selected Dissertations, Theses, and Projects}
+\begin{itemize}[itemsep=2.2pt, topsep=2pt]
+    \item \cvdated{\textbf{Physics PhD Dissertation}}{2020--2026}
+    ``Toward a Five-Station Diffuse Ultra-High Energy Neutrino Search with the Askaryan Radio Array: ARA01 Analysis Framework.'' Defended May 8, 2026. Advised by Prof.\ D. Besson. Published on ProQuest \cvlinkeddoi{https://www.proquest.com/docview/3356640779/fulltextPDF/4CCB4101302F4FB5PQ}{ISBN: 9798252480190} and \href{https://kuscholarworks.ku.edu/items/9ae474ac-8647-476e-9986-d901787aed21}{KU ScholarWorks}.
+
+    \item \cvdated{\textbf{Electrical Engineering Master's Project}}{2024--2025}
+    Developed \textbf{AAFIYA} for antenna measurement and simulation with Prof.\ Jim Stiles (KU EECS), leading to a paper published in the IEEE AP-S/URSI 2026 proceedings. (\href{https://github.com/Mohammad-Neutrino/AAFIYA}{GitHub}), (\href{https://drive.google.com/file/d/16pZq9mp9qqmyMbJ__h_DtHzoyZJUpfUi/view?usp=share_link}{Report}), (\href{https://drive.google.com/file/d/1gTU03rgjUmX7zF2z2f57pjpDCmZjiHhI/view?usp=share_link}{Slides}).
+
+    \item \cvdated{\textbf{Machine Learning Course Project}}{2025}
+    Developed a CNN model for ``Automatic Surface Detection in Echograms using Deep Learning'' in a KU EECS machine learning course. (\href{https://github.com/Mohammad-Neutrino/Machine_Learning_Project}{GitHub}), (\href{https://github.com/Mohammad-Neutrino/Machine_Learning_Project/blob/trunk/Project/report/final_report.pdf}{Report}).
+
+    \item \cvdated{\textbf{Physics Master's Thesis}}{2019--2020}
+    Investigated light sterile neutrino oscillations with Prof.\ M.S. Athar at Aligarh Muslim University (AMU), producing review report ``Light Sterile Neutrinos: Status and Prospects.'' \cvlinkeddoi{https://www.researchgate.net/publication/354254795_LIGHT_STERILE_NEUTRINOS_OSCILLATION_STATUS_AND_PROSPECTS}{10.13140/RG.2.2.13777.66405}.
+    \item \cvdated{\textbf{Physics Undergraduate Project}}{2017--2018}
+    ``Quarks \& Leptons'': Standard Model study with Prof.\ M.S.\ Athar, AMU (\href{https://drive.google.com/file/d/11LsyY1QmncnjOGf1ZWpj7eTM-xcTbCNj/view?usp=sharing}{Handwritten Report}).
+\end{itemize}
+
+
+
+% ------------------------------
+\begingroup
+% Standalone publications typography: Latin Modern, normal italic dates, roomier references.
+\fontsize{10}{12.0}\selectfont
+\renewcommand{\cvdate}[1]{{\normalfont\itshape(#1)}}
 \section*{Publications \& Manuscripts}
+\noindent\textit{First author works and core analysis manuscripts, followed by selected collaborative publications.}
 
-\subsection*{\underline{Manuscripts in Collaboration Review}}
+\subsection*{Manuscripts in Collaboration Review}
 \textbf{Core analysis team:} Bishop, A., Clark, B.A., Dasgupta, P., Giri, P., Machtay, A., Muzio, M.S., Salcedo-Gomez, A., and \textbf{Seikh, M.F.H.}
-\begin{itemize}
-    \item \textbf{ARA Collaboration} \textit{(2026)}. ``First Array-Wide Search for Ultrahigh Energy Neutrinos with the Askaryan Radio Array.'' \textit{Under Collaboration review; planned submission to Physical Review Letters}.
-
-    \item \textbf{ARA Collaboration} \textit{(2026)}. ``Search for Ultrahigh Energy Neutrinos using 10.6 Years of Askaryan Radio Array Data.'' \textit{Under Collaboration review; planned submission to Physical Review D}.
-    
+\begin{itemize}[itemsep=2.2pt,topsep=3pt]
+    \item \textbf{ARA Collaboration} \cvdate{2026}. ``First Array-Wide Search for Ultrahigh Energy Neutrinos with the Askaryan Radio Array.'' \textit{In collaboration review; planned submission to Physical Review Letters}.
+    \item \textbf{ARA Collaboration} \cvdate{2026}. ``Analysis Methodology of the Search for Ultrahigh Energy Neutrinos in 10.6 Years of Askaryan Radio Array Data.'' \textit{In collaboration review; planned submission to Physical Review D}.
 \end{itemize}
 
-\subsection*{\underline{Refereed Journal Publications (First/Lead Author)}}
-\begin{itemize}
-    \item \textbf{Seikh, M.F.H.} {\it (2025)}. ``A geometrical approach to neutrino oscillation parameters''. {\it AIP Advances 15 (10), 105204}. \doi{10.1063/5.0292233}.
-    
-    \item \textbf{Seikh, M.F.H., Grachev, V., Kravchenko, I., Athar, M.S., \& Besson, D.} {\it (2025)}. ``First Radio Neutrino \& Cosmic Rays Astronomy Workshop in India''. \textit{Eur. Phys. J. Spec. Top. 234(16), 4919--4924}. \arxiv{2509.20704}; \doi{10.1140/epjs/s11734-025-01955-8}.
+\subsection*{Refereed Journal Publications (First Author)}
+\begin{cvpubnumbered}{3}
+    \cvnumitem \textbf{Seikh, M.F.H.} \cvdate{2025}. ``A geometrical approach to neutrino oscillation parameters.'' \textit{AIP Advances 15(10), 105204}. \doi{10.1063/5.0292233}; \arxiv{2510.06526}.
+    \cvnumitem \textbf{Seikh, M.F.H.} \cvdate{2025}. ``Physics of radio antennas.'' \textit{Eur. Phys. J. Spec. Top. 234(16), 4967--4983}. \doi{10.1140/epjs/s11734-025-01500-7}; \arxiv{2411.07507}.
+    \cvnumitem \textbf{Seikh, M.F.H.} for the ARA Collaboration \cvdate{2025}. ``Askaryan Radio Array: searching for the highest energy neutrinos.'' \textit{Eur. Phys. J. Spec. Top. 234(16), 5065--5075}. \doi{10.1140/epjs/s11734-025-01708-7}; \arxiv{2411.01761}.
+\end{cvpubnumbered}
 
-    \item \textbf{Seikh, M.F.H.} {\it (2025)}. ``Physics of radio antennas''. \textit{Eur. Phys. J. Spec. Top. 234(16), 4967--4983}. \arxiv{2411.07507}; \doi{10.1140/epjs/s11734-025-01500-7}.
-    
-    \item \textbf{Seikh, M.F.H. for the ARA Collaboration} {\it (2025)}. ``Askaryan Radio Array: searching for the highest energy neutrinos''. \textit{Eur. Phys. J. Spec. Top. 234(16), 5065--5075}. \arxiv{2411.01761}; \doi{10.1140/epjs/s11734-025-01708-7}.
-\end{itemize}
-\vspace{5mm}
-\subsection*{\underline{Conference Proceedings (First/Lead Author)}}
-\begin{itemize}
-    \item \textbf{Seikh, M.F.H., Jarvis, R., \& Stiles, J.} {\it (2026)}. ``AAFIYA: Antenna Analysis in Frequency-domain for Impedance and Yield Assessment''.  \textit{IEEE Xplore, pp. 2537-2540}. \href{https://doi.org/10.1109/AP-S/USNC-URSI60190.2026.11675620}{DOI:10.1109/AP-S/USNC-URSI60190.2026.11675620}; \arxiv{2601.13583}.
+\subsection*{Conference Proceedings (First/Lead Author)}
+\begin{cvpubnumbered}{4}
+    \cvnumitem \textbf{Seikh, M.F.H.}, Jarvis, R., \& Stiles, J. \cvdate{2026}. ``AAFIYA: Antenna Analysis in Frequency-Domain for Impedance and Yield Assessment.'' \textit{IEEE AP-S/URSI}, pp. 2537--2540. \doi{10.1109/AP-S/USNC-URSI60190.2026.11675620}; \arxiv{2601.13583}.
+    \cvnumitem \textbf{Seikh, M.F.H.}, Giri, P., \& Besson, D. for the ARA Collaboration \cvdate{2025}. ``Techniques for Continuous Wave Identification and Filtering in the Askaryan Radio Array.'' \href{https://pos.sissa.it/501/1171/pdf}{PoS(ICRC2025)1171}; \arxiv{2509.20735}.
+    \cvnumitem \textbf{Seikh, M.F.H.} \& Besson, D. for the RNO-G Collaboration \cvdate{2025}. ``Observation of Radio Solar Flares in RNO-G.'' \href{https://pos.sissa.it/501/1365/pdf}{PoS(ICRC2025)1365}.
+    \cvnumitem \textbf{Seikh, M.F.H.} for the ARA Collaboration \cvdate{2023}. ``Calibration and Physics with ARA Station 1.''
+    \href{https://pos.sissa.it/444/1163/}{PoS(ICRC2023)\\1163}; \arxiv{2308.07292}.
+\end{cvpubnumbered}
 
-    \item \textbf{Seikh, M.F.H., Giri, P. \& Besson, D. for the ARA Collaboration} {\it (2025)}. ``Techniques for Continuous Wave Identification and Filtering in the Askaryan Radio Array''. \href{https://pos.sissa.it/501/1171/pdf}{PoS(ICRC2025)1171}; \arxiv{2509.20735}.
+\Needspace{8\baselineskip}
+\subsection*{Editorial and Other Scientific Writing}
+\begin{cvpubnumbered}{5}
+    \cvnumitem \textbf{Seikh, M.F.H.}, Grachev, V., Kravchenko, I., Athar, M.S., \& Besson, D. \cvdate{2025}. ``First Radio Neutrino \& Cosmic Rays Astronomy Workshop in India.'' \textit{Eur. Phys. J. Spec. Top. 234(16), 4919--4924}. \doi{10.1140/epjs/s11734-025-01955-8}; \arxiv{2509.20704}. \textit{(Editorial for the special issue.)}
+    \cvnumitem \textbf{Seikh, M.F.H.} \& Besson, D. \cvdate{2026}. ``Polar Ice as a Laboratory for Physics.'' \href{https://drive.google.com/file/d/1eny09TjrDmNsoqKf86RbFbMdMi_LdEsB/view?usp=share_link}{\textit{Physics Bulletin 2026, AMU}, pp. 27--37}.
+    \cvnumitem \textbf{Seikh, M.F.H.} \cvdate{2025}. ``From Aligarh to the Arctic: Carrying the Spirit of Sir Syed to Greenland's Summit.'' \href{https://www.amuatl.org/publications/1}{\textit{ALIG Atlanta 2025}, pp. 20--21}.
+    \cvnumitem \textbf{Seikh, M.F.H.} \& Besson, D. \cvdate{2024}. ``IceCube Neutrino Observatory: A Cold Discovery Hub.'' \href{https://drive.google.com/file/d/1q1vm4tf2Z8iK_Iw3n3kVayBnP7K6tHQI/view?usp=sharing}{\textit{Physics Bulletin 2024, AMU}, pp. 14--23}.
+    \cvnumitem \textbf{Seikh, M.F.H.} \cvdate{2020}. ``Neutrinos and the 40 Future Routes.'' \textit{Physics Bulletin, AMU}. \doi{10.13140/RG.2.2.27981.10729}.
+\end{cvpubnumbered}
 
-    \item \textbf{Seikh, M.F.H. \& Besson, D. for the RNO-G Collaboration} {\it (2025)}. ``Observation of Radio Solar Flares in RNO-G''. \href{https://pos.sissa.it/501/1365/pdf}{PoS(ICRC2025)1365}.
+\subsection*{Selected Collaborative Publications}
+\noindent\textit{Collaboration authored and multi-institution papers; these are distinct from the first author works above.}\vspace{2mm}
+\begin{cvpubnumbered}{11}
+    \cvnumitem \textbf{ARA Collaboration} \cvdate{2026}. ``Observation of In-Ice Askaryan Radiation from High-Energy Cosmic Rays.'' \textit{Phys. Rev. Lett. 136, 151003}. \doi{10.1103/xwqy-yzrk}; \arxiv{2510.21104}.
+    \cvnumitem \textbf{RNO-G Collaboration} \cvdate{2026}. ``Probing the firn refractive index profile using antenna response.'' \textit{J. Glaciol. 72, e39}. \doi{10.1017/jog.2026.10133}; \arxiv{2504.03862}.
+    \cvnumitem Hornhuber, C., \textbf{Seikh, M.F.H.}, Stockham, M., Voigt, S., Young, R., et al. \cvdate{2026}. ``Development of a custom kV-amplitude, pressure-tolerant radio-frequency transmitter.'' \textit{Nucl. Instrum. Meth. A 1089, 171584}. \doi{10.1016/j.nima.2026.171584}; \arxiv{2512.14866}.
+    \cvnumitem \textbf{RNO-G Collaboration} \cvdate{2025}. ``Instrument design and performance of the first seven stations of RNO-G.'' \textit{JINST 20(04), P04015}. \doi{10.1088/1748-0221/20/04/P04015}; \arxiv{2411.12922}.
+    \cvnumitem \textbf{RNO-G Collaboration} \cvdate{2025}. ``Solar flare observations with the Radio Neutrino Observatory Greenland (RNO-G).'' \textit{Astropart. Phys. 164, 103024}. \doi{10.1016/j.astropartphys.2024.103024}; \arxiv{2404.14995}.
+    \cvnumitem \textbf{IceCube Collaboration} \cvdate{2025}. ``Search for Extremely-High-Energy Neutrinos and First Constraints on the Ultrahigh-Energy Cosmic-Ray Proton Fraction with IceCube.'' \textit{Phys. Rev. Lett. 135, 031001}. \doi{10.1103/PhysRevLett.135.031001}; \arxiv{2502.01963}.
+    \cvnumitem \textbf{IceCube-Gen2 Collaboration} \cvdate{2025}. ``Probing ultra-high-energy neutrinos with the IceCube-Gen2 in-ice radio array.'' \href{https://doi.org/10.22323/1.501.1045}{PoS(ICRC2025)1045}; \arxiv{2507.07813}.
+    \cvnumitem \textbf{PUEO Collaboration} \cvdate{2025}. ``The Payload for Ultrahigh Energy Observations: Detector Design and Implementation.'' \href{https://doi.org/10.22323/1.501.1063}{PoS(ICRC2025)1063}.
+    \cvnumitem \textbf{RET Collaboration} \cvdate{2024}. ``Macroscopic approach to the radar echo scatter from high-energy particle cascades.'' \textit{Phys. Rev. D 109, 083012}. \doi{10.1103/PhysRevD.109.083012}; \arxiv{2310.06731}.
+    \cvnumitem \textbf{ARA Collaboration} \cvdate{2022}. ``Low-threshold ultrahigh-energy neutrino search with the Askaryan Radio Array.'' \textit{Phys. Rev. D 105, 122006}. \doi{10.1103/PhysRevD.105.122006}; \arxiv{2202.07080}.
+    \cvnumitem \textbf{TAROGE-M/ARIANNA Collaborations} \cvdate{2022}. ``TAROGE-M: radio antenna array on antarctic high mountain for detecting near-horizontal ultra-high energy air showers.'' \textit{JCAP 11, 022}. \doi{10.1088/1475-7516/2022/11/022}; \arxiv{2207.10616}.
+\end{cvpubnumbered}
 
-    \item \textbf{Seikh, M.F.H. for the ARA Collaboration} {\it (2023)}. ``Calibration and Physics with ARA Station 1''. \href{https://pos.sissa.it/444/1163/}{PoS(ICRC2023)1163}; \arxiv{2308.07292}.
-\end{itemize}
 
-\subsection*{\underline{Invited and General Scientific Writing}}
-\begin{itemize}
-    \item \textbf{Seikh, M.F.H. \& Besson, D.} {\it (2026)}. ``Polar Ice as a Laboratory for Physics''. \href{https://drive.google.com/file/d/1eny09TjrDmNsoqKf86RbFbMdMi_LdEsB/view?usp=share_link}{\textit{Physics Bulletin 2026, Physics Department, AMU}, pp. 27--37}.
+\par\vspace{1.6ex}
+\noindent\textit{The complete publication record, including contributions to the ARA, RNO-G, ARIANNA, IceCube, IceCube-Gen2, PUEO, TAROGE-M, and RET Collaborations, is available in the} 
+\href{https://github.com/Mohammad-Neutrino/Publications/blob/trunk/Publications.pdf}{\faFilePdf\,Complete Publication List (PDF)}.
 
-    \item \textbf{Seikh, M.F.H. \& Besson, D.} {\it (2024)}. ``IceCube Neutrino Observatory: A Cold Discovery Hub''. \href{https://drive.google.com/file/d/1q1vm4tf2Z8iK_Iw3n3kVayBnP7K6tHQI/view?usp=sharing}{\textit{Physics Bulletin 2024, Physics Department, AMU}, pp. 14--23}.
 
-    \item \textbf{Seikh, M.F.H.} {\it (2020)}. ``Neutrinos and the 40 Future Routes''. \textit{Physics Bulletin, Physics Department, AMU}. \href{https://www.researchgate.net/publication/340272190_Neutrinos_and_the_40_Future_Routes}{DOI:10.13140/RG.2.2.27981.10729}.
-\end{itemize}
 
 % ------------------------------
-\subsection*{\underline{Collaborative Works}}
-Complete publication record, including contributions to the ARA, RNO-G, ARIANNA, IceCube, IceCube-Gen2, PUEO, TAROGE-M, and RET Collaborations, available on:
-\begin{center}
-    \href{https://inspirehep.net/authors/2014116}{Inspire HEP} ;~~\href{https://scholar.google.com/citations?user=dSwfpWQAAAAJ}{Google Scholar} ;~~\href{https://www.researchgate.net/profile/Mohammad-Ful-Hossain-Seikh}{ResearchGate} ;~ORCiD \orcidlink{0000-0002-4464-7354} ;~~\href{https://www.scopus.com/authid/detail.uri?authorId=57426893600}{Scopus}
-\end{center}
 
+\par\endgroup
 
 % ------------------------------
-\section*{Invited Lectures, Seminars, \& Colloquia}
+\section*{Invited Talks, Seminars, \& Lectures}
+\subsection*{Upcoming Invitations}
 \begin{itemize}
-
-    \item \textbf{The Search for the Highest-Energy Neutrinos in Polar Ice}\\
-    Eddy and April Lucas Physics Seminar, Wichita State University \textit{(Oct 21, 2026, scheduled)}
-
     \item \textbf{HEP Seminar}, 
-    Oklahoma State University \textit{(Nov 5, 2026, scheduled)}
-
-    \item \textbf{Neutrinos in Multimessenger Astronomy}\\
-    Guest Lectures, ASTR 798 High-Energy Astrophysics, University of Kansas \textit{(Dec 1 \& 3, 2026, scheduled)}
-
+    Oklahoma State University \cvdate{Nov 5, 2026}\enspace |\enspace\textit{scheduled}
+    \item \textbf{Neutrinos in Multimessenger Astronomy}\\*
+    Guest Lectures, ASTR 798 High-Energy Astrophysics, University of Kansas \cvdate{Dec 1 \& 3, 2026}\enspace |\enspace\textit{scheduled}
     \item \textbf{WUCAP Seminar}, 
-    Washington University in St. Louis \textit{(Feb 12, 2027, scheduled)}
-
+    Washington University in St. Louis \cvdate{Feb 12, 2027}\enspace |\enspace\textit{scheduled}
     \item \textbf{Physics Colloquium}, 
-    Missouri University of Science and Technology \textit{(Spring 2027, date TBD)}
-
-    \item \textbf{Searching for the Universe's Highest-Energy Neutrinos with Radio Detectors}\\
-    Particle Physics Seminar, Carnegie Mellon University \textit{(Sep 9, 2026)}
-
-    \item \textbf{Radio Engineering for Particle Astrophysics Experiments}\\
-    HEP Seminar, University of Nebraska-Lincoln \textit{(Mar 26, 2025)}
-    
-    \item \textbf{Radio Engineering for Particle Astrophysics Experiments} \\
-    Astroparticle Seminar, Ohio State University \textit{(Jan 22, 2025)}
-    
-    \item \textbf{Radio Engineering \& Antenna Physics} \\
-    Lecture Series, IEI Summer School 2024, University of Alaska, Anchorage \textit{(Jul 2--5, 2024)}
-    
-    \item \textbf{UHE Neutrino \& Cosmic Ray Detectors} \\
-    ICEHAP Seminar, Chiba University, Japan \textit{(Aug 9, 2023)}
-    
-    \item \textbf{Antenna Physics \& Measurements} \\
-    Lecture Series, IEI Summer School 2023, South Dakota School of Mines \textit{(Jul 2--5, 2023)}
-    
-    \item \textbf{UHE Neutrino \& Cosmic Ray Detectors} \\
-    Physics Colloquium, AMU, India \textit{(Jan 12, 2023)}
-    
-    \item \textbf{Antennas in UHE Neutrino Detectors} \\
-    Particle Physics Seminar, University of Delaware \textit{(Oct 4, 2022)}
+    Missouri University of Science and Technology \cvdate{Spring 2027}\enspace |\enspace\textit{date TBD}
 \end{itemize}
+\subsection*{Delivered Invited Talks}
+\begin{cvnumbered}{9}
+    \cvnumitem \textbf{The Search for the Highest-Energy Neutrinos in Polar Ice}\\*
+    Eddy and April Lucas Physics Seminar, Wichita State University \cvdate{Oct 21, 2026}
+    \cvnumitem \textbf{Searching for the Universe's Highest-Energy Neutrinos with Radio Detectors}\\*
+    Particle Physics Seminar, Carnegie Mellon University \cvdate{Sep 9, 2026}
+    \cvnumitem \textbf{Radio Engineering for Particle Astrophysics Experiments}\\*
+    HEP Seminar, University of Nebraska-Lincoln \cvdate{Mar 26, 2025}
+    \cvnumitem \textbf{Radio Engineering for Particle Astrophysics Experiments} \\*
+    Astroparticle Seminar, Ohio State University \cvdate{Jan 22, 2025}
+    \cvnumitem \textbf{Radio Engineering \& Antenna Physics} \\*
+    Lecture Series, IEI Summer School 2024, University of Alaska, Anchorage \cvdate{Jul 2--5, 2024}
+    \cvnumitem \textbf{UHE Neutrino \& Cosmic Ray Detectors} \\*
+    ICEHAP Seminar, Chiba University, Japan \cvdate{Aug 9, 2023}
+    \cvnumitem \textbf{Antenna Physics \& Measurements} \\*
+    Lecture Series, IEI Summer School 2023, South Dakota School of Mines \cvdate{Jul 2--5, 2023}
+    \cvnumitem \textbf{UHE Neutrino \& Cosmic Ray Detectors} \\*
+    Physics Colloquium, AMU, India \cvdate{Jan 12, 2023}
+    \cvnumitem \textbf{Antennas in UHE Neutrino Detectors} \\*
+    Particle Physics Seminar, University of Delaware \cvdate{Oct 4, 2022}
+\end{cvnumbered}
 
 % ------------------------------
 \section*{Teaching \& Research Mentoring}
 
-\subsection*{\underline{Teaching \& Tutoring}}
+\subsection*{Teaching \& Tutoring}
 \begin{itemize}
-    \item \textbf{PHSX 211: General Physics I, KU} \textit{Fall 2021} \\
+    \item \cvdated{\textbf{PHSX 211: General Physics I, KU}}{Fall 2021}
     \textbf{Course Instructor and Discussion Moderator.} Classical mechanics and thermodynamics for engineering and physical science majors.
 
-    \item \textbf{PHSX 115: College Physics II, KU} \textit{Fall 2021} \\
+    \item \cvdated{\textbf{PHSX 115: College Physics II, KU}}{Fall 2021}
     \textbf{Lab Instructor.} Electricity, magnetism, optics, and introductory atomic and nuclear physics.
 
-    \item \textbf{PHSX 114: College Physics I, KU} \textit{Summer 2021} \\
+    \item \cvdated{\textbf{PHSX 114: College Physics I, KU}}{Summer 2021}
     \textbf{Lab Instructor.} Mechanics, fluids, heat, thermodynamics, and sound.
-
-    \item \textbf{Private Tutor, Aligarh, India} \textit{2016--2020} \\
+    \item \cvdated{\textbf{Private Tutor, Aligarh, India}}{2016--2020}
     Taught high school physics and mathematics during B.Sc. and M.Sc. studies.
 \end{itemize}
 
-\subsection*{\underline{Research Advising}}
+\subsection*{Research Advising}
 \begin{itemize}
-    \item \textbf{Daniel Dakroub}, Senior Undergraduate, MEPhI, Moscow, Russia \textit{Apr 2026--Present} \\
+    \item \cvdated{\textbf{Daniel Dakroub}, Senior Undergraduate, MEPhI, Moscow, Russia}{Apr 2026--Present}
     Project: Inter-Experiment Search for Surface-Mode Radio Propagation.
 
-    \item \textbf{Burhan-Ullah Khan}, High School Student, RMPS AMU City School, Aligarh, India \textit{Sep 2026--Present} \\
+    \item \cvdated{\textbf{Burhan-Ullah Khan}, High School Student, RMPS AMU City School, Aligarh, India}{Sep 2026--Present}
     Project: Model Development for Explaining ANITA Anomalous Events.
 \end{itemize}
 
 % ------------------------------
 \section*{Professional Service}
-\subsection*{\underline{Editorial}}
+\subsection*{Editorial}
 \begin{itemize}
-    \item {\bfseries Book Editor} for Springer's EPJ-ST journal: \href{https://link.springer.com/collections/ediiddhcdc}{``Radio Detection of Ultra-high Energy Neutrino \& Cosmic Ray"} (15 articles) with M.S. Athar, D. Besson, V. Grachev, and I. Kravchenko (\href{https://drive.google.com/file/d/10yQDNYlvJac99on-PoZy5NE_O8JWTfhs/view?usp=share_link}{View Cover}) \textit{(2024--2025)}
-
-    \vspace{0.1em}
-    \noindent  
-    \item {\bf Founder and Editor-in-Chief} of \textit{The Magnetic Monopole} e-magazine for KU's Society of Physics Students    (\href{https://drive.google.com/file/d/12yfhWqUupWIPWM5WcWdIviUYbVA2GnWY/view?usp=sharing}{View Issue})  \textit{(Jun 2022)}
+    \item {\bfseries Special-Issue Co-editor} of \textit{The European Physical Journal Special Topics}: \href{https://link.springer.com/collections/ediiddhcdc}{``Radio Detection of Ultra-high Energy Neutrino \& Cosmic Ray"} (15 articles) with M.S. Athar, D. Besson, V. Grachev, and I. Kravchenko (\href{https://drive.google.com/file/d/10yQDNYlvJac99on-PoZy5NE_O8JWTfhs/view?usp=share_link}{View Cover}) \cvdate{2024--2025}
+\item {\bf Founder and Editor-in-Chief} of \textit{The Magnetic Monopole} e-magazine for KU's Society of Physics Students    (\href{https://drive.google.com/file/d/12yfhWqUupWIPWM5WcWdIviUYbVA2GnWY/view?usp=sharing}{View Issue})  \cvdate{Jun 2022}
 \end{itemize}
 
 % ------------------------------
-\subsection*{\underline{Research Article Review}}
+\subsection*{Peer Review}
 \begin{itemize}
 
-    \item {\bf Peer Reviewer:} for World Scientific's IJMP-A journal (1 article, 2 reviews) (2025)
-
-    \vspace{0.0em}
-    \noindent  
-    \item {\bf Peer Reviewer:} for Springer's EPJ-ST journal (5 articles, 11 reviews) \textit{(2024--2025)}
-
-    \vspace{0.0em}
-    \noindent  
-    \item {\bf Internal Collaboration Reviewer:}
-    \begin{itemize}[label={\color{black}$\checkmark$}]
-        \item Muzio, M.S. and Salcedo-Gomez, A. for the ARA Collaboration, ``The First Array-Wide Diffuse Flux Search for UHE Neutrinos with the Askaryan Radio Array", ARENA2026, \textit{(Jun 2026)}
-        \item Giri, P. for the ARA Collaboration, ``A Comprehensive Diffuse Neutrino Search Using the Full Askaryan Radio Array", Lepton--Photon2025, \textit{(Nov 2025)}
-    \end{itemize}
-
+    \item \textbf{Peer Reviewer}, \textit{International Journal of Modern Physics A} (1 manuscript, 2 rounds) \cvdate{2025}
+\item \textbf{Peer Reviewer}, \textit{The European Physical Journal Special Topics} (5 manuscripts, 11 rounds) \cvdate{2024--2025}
+\end{itemize}
+\Needspace{8\baselineskip}
+\subsection*{Internal Collaboration Review}
+\begin{itemize}
+    \item Muzio, M.S. and Salcedo-Gomez, A. for the ARA Collaboration, ``The First Array-Wide Diffuse Flux Search for UHE Neutrinos with the Askaryan Radio Array'', ARENA \cvdate{Jun 2026}
+    \item Giri, P. for the ARA Collaboration, ``A Comprehensive Diffuse Neutrino Search Using the Full Askaryan Radio Array'', Lepton--Photon \cvdate{Nov 2025}
 \end{itemize}
 
 % ------------------------------
-\subsection*{\underline{Conference Session Chair}}
+\subsection*{Conference Session Chairing}
 \begin{itemize}
 
-    \item {\bf General Cosmology:} for APS Global Physics Summit (Mar 19, 2026)
-
-    \vspace{0.0em}
-    \noindent  
-    \item {\bf Topical Groups Session II:} for APS Global Physics Summit (Mar 17, 2026)
+    \item {\bf General Cosmology:} for APS Global Physics Summit \cvdate{Mar 19, 2026}
+\item {\bf Topical Groups Session II:} for APS Global Physics Summit \cvdate{Mar 17, 2026}
 
 \end{itemize}
 
 % ------------------------------
-\subsection*{\underline{Other Reviews}}
+\subsection*{Application Review}
 \begin{itemize}
 
-    \item {\bf REU Application Reviewer:} for KU Physics and Astronomy (10 Applications) (2025)
-
-    \vspace{0.0em}
-    \noindent  
-    \item {\bf SSGSA Application Reviewer:} for SSGSA (70+ Applications) \textit{(2021--2026)}
+    \item {\bf REU Application Reviewer:} for KU Physics and Astronomy (10 Applications) \cvdate{2025}
+\item {\bf SSGSA Application Reviewer:} for SSGSA (70+ Applications) \cvdate{2021--2026}
 
 \end{itemize}
 
 
 % ------------------------------
-\subsection*{\underline{Professional Leadership \& Membership}}
+\subsection*{Professional Leadership \& Membership}
 \begin{itemize}
+    \item \textbf{Workshop Co-organizer and Host}: \href{https://indico.ku.edu/event/388/overview}{India's first UHE particle radio-detection workshop}, AMU\cvdate{Apr 2024}.
     \item \textbf{American Physical Society (APS)}: Member  
-    \textit{(2020--Present)}
-    \item \textbf{National Society of Black Physicists}: Member \textit{(2021--Present)}
+    \cvdate{2020--Present}
+    \item \textbf{National Society of Black Physicists}: Member \cvdate{2021--Present}
     \item \textbf{Physics \& Astronomy Graduate Student Organization (GSO), KU}:
     \begin{itemize}[label={\color{black}$\checkmark$}]
-        \item Graduate Students Representative - Member at Large  \textit{(2025--2026)}
-        \item Graduate Students Representative - Liaison  \textit{(2024--2025)}
-        \item GSO Executive Officer  \textit{(2023--2024)}
+        \item Graduate Students Representative - Member at Large  \cvdate{2025--2026}
+        \item Graduate Students Representative - Liaison  \cvdate{2024--2025}
+        \item GSO Executive Officer  \cvdate{2023--2024}
     \end{itemize}%\vspace{5mm}
     \item \textbf{Sir Syed Global Scholar Award (SSGSA)}:
     \begin{itemize}[label={\color{black}$\checkmark$}]
-        \item Peer Mentor \textit{(2023--Present)}
-        \item Team Lead, Promotions \& Outreach \textit{(2023--2025)}
+        \item Peer Mentor \cvdate{2023--Present}
+        \item Team Lead, Promotions \& Outreach \cvdate{2023--2025}
     \end{itemize}
-    \item \textbf{Society of Physics Students, KU Chapter}: Graduate President \textit{(2021--2022)}
+    \item \textbf{Society of Physics Students, KU Chapter}: Graduate President \cvdate{2021--2022}
     \item \textbf{Sigma Pi Sigma (National Physics Honor Society)}: Lifetime Member
-    \item \textbf{AMU Society of Physics}: Member \textit{(2018--Present)}
+    \item \textbf{AMU Society of Physics}: Member \cvdate{2018--Present}
 \end{itemize}
 
 % ------------------------------
@@ -349,128 +390,103 @@ Complete publication record, including contributions to the ARA, RNO-G, ARIANNA,
 \end{itemize}
 
 % ------------------------------
+\section*{Conference Presentations}
+\subsection*{Oral Presentations}
+\begin{cvnumbered}{11}
+
+    \cvnumitem \textbf{Pioneering an Array-Wide Search for UHE$\nu$ with ARA}. APS Global Physics Summit \cvdate{2026}.
+
+    \cvnumitem \textbf{RNO-G in-ice Antennas}. RNO-G Collaboration Meeting at Uppsala \cvdate{2024}.
+    
+    \cvnumitem \textbf{Radio Frequency Instrumentation}. Radio Neutrino Workshop at AMU \cvdate{2024}.
+    
+    \cvnumitem \textbf{Towards Five Station ARA Analysis}. APS April Meeting \cvdate{2024}.
+
+    \cvnumitem \textbf{ARA Antenna Models}. ARA Collaboration Meeting at Ohio State \cvdate{2024}.
+    
+    \cvnumitem \textbf{Current Status \& Future of ARA}. APS Prairie Section Meeting at  U Missouri \cvdate{2023}.
+    
+    \cvnumitem \textbf{Introduction to Antenna Physics}. RET Collaboration Meeting at VUB \cvdate{2023}.
+    
+    \cvnumitem \textbf{Gain Calibration of RNO-G Antennas}. RNO-G Fall Meeting at Penn State \cvdate{2023}.
+
+    \cvnumitem \textbf{Galactic Noise in Radio Neutrino Experiments}. Astro Seminar at KU \cvdate{2022}.
+    
+    \cvnumitem \textbf{Towards ARA Station 1 Calibration}. APS April Meeting \cvdate{2022}.
+    
+    \cvnumitem \textbf{RNO-G Ice Calibration Planning}. RNO-G Collaboration Meeting at U Chicago \cvdate{2022}.
+\end{cvnumbered}
+\pagebreak
+% ------------------------------
+\subsection*{Poster Presentations}
+\begin{cvnumbered}{8}
+
+    \cvnumitem \textbf{A Diffuse Search for UHE Cosmogenic Neutrinos with ARA Five Stations}. Neutrino \cvdate{2026}.
+
+    \cvnumitem \textbf{Monitoring Snow Accumulation in ARA Using DAQ Temperature Data}. Neutrino \cvdate{2026}.
+
+    \cvnumitem \textbf{A Geometrical Approach to Neutrino Oscillation Parameters}. APS Global Physics Summit \cvdate{2026}.
+    
+    \cvnumitem \textbf{CW Identification \& Filtering Techniques in ARA}. 39th ICRC \cvdate{2025}.
+    
+    \cvnumitem \textbf{Observation of radio solar flares in RNO-G}. 39th ICRC \cvdate{2025}.
+    
+    \cvnumitem \textbf{Gain Measurements of LPDA Antennas}. APS April Meeting \cvdate{2024}.
+    
+    \cvnumitem \textbf{Overview of ARA Detector: Five Station Analysis}. ICTS Neutrino School \cvdate{2024}.
+    
+    \cvnumitem \textbf{Calibration of ARA Station 1}. 38th ICRC \cvdate{2023}.
+    
+\end{cvnumbered}
+
+
+
+
+
 \section*{Honors \& Awards}
-\subsection*{\underline{Academic Honors}}
+\subsection*{Academic Honors}
 \begin{itemize}
     \item \textbf{University Gold Medals}:
     \begin{itemize}[label={\color{black}$\checkmark$}]
-        \item M.Sc. Physics (Top among 50 students), AMU \textit{(2020)}
-        \item B.Sc. Honors Physics (Top among 120 students), AMU \textit{(2018)}
-        \item Highest percentage in B.Sc. (Hons) Faculty of Science, AMU \textit{(2018)}
+        \item \cvdated{M.Sc. Physics (Top among 50 students), AMU}{2020}
+        \item \cvdated{B.Sc. Honors Physics (Top among 120 students), AMU}{2018}
+        \item \cvdated{Highest percentage in B.Sc. (Hons) Faculty of Science, AMU}{2018}
     \end{itemize}
-    \item \textbf{Abdul Aziz Medal} for B.Sc. Physics, AMU \textit{(2018)}
-    \item \textbf{Undergraduate Topper Scholarship}, UGC India \textit{(2020)}
+    \item \cvdated{\textbf{Abdul Aziz Medal} for B.Sc. Physics, AMU}{2018}
+    \item \cvdated{\textbf{Undergraduate Topper Scholarship}, UGC India}{2020}
 \end{itemize}
 
 % ------------------------------
-\subsection*{\underline{Fellowships \& Grants}}
+\subsection*{Fellowships \& Grants}
 \begin{itemize}
-    \item \textbf{Ralston Dissertation Fellowship}, KU Physics \textit{(2025--2026)}
-    \item \textbf{McKeithan Summer Fellowship}, KU Physics \textit{(2025)}
-    \item \textbf{Graduate Student Award for Distinguished Service}, KU \textit{(2024--2025)}
-    \item \textbf{Wallace S. Strobel Scholarship}, KU EECS \textit{(2024--2025)}
-    \item \textbf{Ralston Summer Fellowship}, KU Physics \textit{(2024)}
-    \item \textbf{Doctoral Student Research Fund}, KU \textit{(2024)}
-    \item {\bf Distinguished Students Award}, APS FIP \textit{(2021--2022)}
-    \item \textbf{Carl \& Catherine Chaffee Scholarship}, KU Physics \textit{(2020--2021)}
-    \item \textbf{University Merit Financial Award}, AMU \textit{(2019--2020)}
+    \item \cvdated{\textbf{Ralston Dissertation Fellowship}, KU Physics}{2025--2026}
+    \item \cvdated{\textbf{McKeithan Summer Fellowship}, KU Physics}{2025}
+    \item \cvdated{\textbf{Graduate Student Award for Distinguished Service}, KU}{2024--2025}
+    \item \cvdated{\textbf{Wallace S. Strobel Scholarship}, KU EECS}{2024--2025}
+    \item \cvdated{\textbf{Ralston Summer Fellowship}, KU Physics}{2024}
+    \item \cvdated{\textbf{Doctoral Student Research Fund}, KU}{2024}
+    \item \cvdated{{\bf Distinguished Students Award}, APS FIP}{2021--2022}
+    \item \cvdated{\textbf{Carl \& Catherine Chaffee Scholarship}, KU Physics}{2020--2021}
+    \item \cvdated{\textbf{University Merit Financial Award}, AMU}{2019--2020}
 \end{itemize}
 
 % ------------------------------
-\subsection*{\underline{Conference Travel Awards}}
+\subsection*{Conference Travel Awards}
 \begin{itemize}
-    \item {\bf Junior Participant Support}, Neutrino \textit{(2026)}
-    \item \textbf{Graduate Student Travel Fund}, KU Physics \textit{(2023, 2025)}
-    \item \textbf{DAP Travel Grant}, APS \textit{(2024)}
-    \item \textbf{DPF Travel Award}, APS \textit{(2022, 2024)}
-    \item \textbf{CLAS Graduate Scholarly Development Fund}, KU \textit{(2022)}
+    \item \cvdated{{\bf Junior Participant Support}, Neutrino}{2026}
+    \item \cvdated{\textbf{Graduate Student Travel Fund}, KU Physics}{2023, 2025}
+    \item \cvdated{\textbf{DAP Travel Grant}, APS}{2024}
+    \item \cvdated{\textbf{DPF Travel Award}, APS}{2022, 2024}
+    \item \cvdated{\textbf{CLAS Graduate Scholarly Development Fund}, KU}{2022}
 \end{itemize}
 
 % ------------------------------
-\subsection*{\underline{Other Distinctions}}
+\subsection*{Other Distinctions}
 \begin{itemize}
-    \item \textbf{Washington DC Scholarship}, AMU Alumni Association \textit{(2015--2019)}
-    \item \textbf{Sir Syed Global Scholar Award} for prospective graduate students \textit{(2018)}
-    \item \textbf{Senior Diploma in Painting with Distinction}, Bangiya Sangeet Parishad (2014)
+    \item \cvdated{\textbf{Washington DC Scholarship}, AMU Alumni Association}{2015--2019}
+    \item \cvdated{\textbf{Sir Syed Global Scholar Award} for prospective graduate students}{2018}
+    \item \textbf{Senior Diploma in Painting with Distinction}, Bangiya Sangeet Parishad \cvdate{2014}
 \end{itemize}
 
 % ------------------------------
-\section*{Conference Presentations}
-\subsection*{\underline{Oral Presentations}}
-\begin{itemize}
-
-    \item \textbf{Pioneering an Array-Wide Search for Ultra-high Energy Neutrinos with ARA} \\
-    APS Global Physics Summit \textit{(Mar 18, 2026)}
-
-    \item \textbf{RNO-G in-ice Antennas} \\
-    RNO-G Collaboration Meeting, Uppsala University \textit{(Sep 9--14, 2024)}
-    
-    \item \textbf{Radio Frequency Instrumentation} \\
-    Radio Neutrino Workshop, AMU \textit{(Apr 18--20, 2024)}
-    
-    \item \textbf{Towards Five Station ARA Analysis} \\
-    APS April Meeting, Sacramento \textit{(Apr 3--6, 2024)}
-
-    \item \textbf{ARA Antenna Models} \\
-    ARA Collaboration Meeting, Ohio State University \textit{(Mar 5--8, 2024)}
-    
-    \item \textbf{Current Status \& Future of ARA} \\
-    APS Prairie Section Meeting, University of Missouri \textit{(Nov 30--Dec 2, 2023)}
-    
-    \item \textbf{Introduction to Antenna Physics} \\
-    RET Collaboration Meeting, Vrije University Brussels \textit{(Nov 8--11, 2023)}
-    
-    \item \textbf{Gain Calibration of RNO-G Antennas} \\
-    RNO-G Fall Meeting, Penn State University \textit{(Sep 11--15, 2023)}
-
-    \item \textbf{Galactic Noise in Radio Neutrino Experiments} \\
-    Astro Seminar, KU \textit{(Oct 28, 2022)}
-    
-    \item \textbf{Towards ARA Station 1 Calibration} \\
-    APS April Meeting, New York City \textit{(Apr 9--12, 2022)}
-    
-    \item \textbf{RNO-G Ice Calibration Planning} \\
-    RNO-G Collaboration Meeting, University of Chicago \textit{(Apr 8, 2022)}
-\end{itemize}
-
-% ------------------------------
-\subsection*{\underline{Poster Presentations}}
-\begin{itemize}
-
-    \item \textbf{A Diffuse Search for UHE Cosmogenic Neutrinos with ARA Five Stations} \\
-    Neutrino 2026, UC Irvine \textit{(Jun 21--26, 2026)}
-
-    \item \textbf{Monitoring Snow Accumulation in ARA Using DAQ Temperature Data} \\
-    Neutrino 2026, UC Irvine \textit{(Jun 21--26, 2026)}
-
-    \item \textbf{A Geometrical Approach to Neutrino Oscillation Parameters} \\
-    APS Global Physics Summit \textit{(Mar 17, 2026)}
-    
-    \item \textbf{CW Identification \& Filtering Techniques in ARA} \\
-    39th ICRC, Geneva, Switzerland \textit{(Jul 19, 2025)}
-    
-    \item \textbf{Observation of radio solar flares in RNO-G} \\
-    39th ICRC, Geneva, Switzerland \textit{(Jul 15, 2025)}
-    
-    \item \textbf{Gain Measurements of LPDA Antennas} \\
-    APS April Meeting, Sacramento \textit{(Apr 3--6, 2024)}
-    
-    \item \textbf{Overview of ARA Detector: Five Station Analysis} \\
-    ICTS Neutrino School, India \textit{(Apr 22--May 3, 2024)}
-    
-    \item \textbf{Calibration of ARA Station 1} \\
-    38th ICRC, Nagoya University, Japan \textit{(Jul 29, 2023)}
-    
-\end{itemize}
-
-% ------------------------------
-\section*{Outreach \& Leadership}
-\begin{itemize}
-    \item Co-organized and hosted India's inaugural workshop on \href{https://indico.ku.edu/event/388/overview}{\bf Radio Detection of UHE Neutrino and Cosmic Rays} at AMU \textit{(Apr 2024)}
-    \item Conducted outreach seminar on \textbf{Physics Research Opportunities} at AMU \textit{(2021)}
-    \item Participated in India's first \textbf{Science Leadership Workshop} \textit{(2020)}
-\end{itemize}
-
-
-
 \end{document} 
